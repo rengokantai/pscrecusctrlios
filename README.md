@@ -50,11 +50,13 @@ init(frame:CGRect,type:FieldType)
 {
   self.type=type
   super.init(frame:frame)
+  self.setupControls()
 }
 
 override init(frame:CGRect)
 {
   super.init(frame:frame)
+  self.setupControls()
 }
 
 require init?(coder aDecoder:NSCoder)
@@ -82,3 +84,16 @@ private func setupControls()
   self.inputTextField.frame = CGTRectMake(0,19,self.boundWidth,20)
 }
 }
+
+back to ViewConttroller:
+```
+override func viewDidLoad()
+{
+  super.viewDidLoad()
+  self.btnLogIn.layer.cornerRadius=4
+  
+  self.inputEmail = LogInField(frame:CGRectMake(....),type:.Email)
+  self.view.addSubview(inputemail)
+  self.inputPassword = LogInField(frame:CGRectMake(....),type:.Password)
+}
+```
