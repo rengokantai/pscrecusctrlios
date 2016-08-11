@@ -96,4 +96,9 @@ override func viewDidLoad()
   self.view.addSubview(inputemail)
   self.inputPassword = LogInField(frame:CGRectMake(....),type:.Password)
 }
+override func viewWillLayoutSubviews()
+{
+  self.inputEmail.frame=CGRectMake(...)
+  self.inputPassword.frame=CGRectMake(...)
+}
 ```
