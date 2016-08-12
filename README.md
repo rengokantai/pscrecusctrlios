@@ -84,7 +84,7 @@ private func setupControls()
   self.inputTextField.frame = CGTRectMake(0,19,self.boundWidth,20)
 }
 }
-
+```
 back to ViewConttroller:
 ```
 override func viewDidLoad()
@@ -102,3 +102,85 @@ override func viewWillLayoutSubviews()
   self.inputPassword.frame=CGRectMake(...)
 }
 ```
+
+######13
+```
+aControl.addTarget(aViewController,action:Selector(do()),forControlEvents:.TouchUpInside)
+```
+delegate pattern
+```
+class aViewCintroller: UIViewController,UITableViewDelegate{
+  self.aTableView.delegate=self
+  func tableView(tableView:UITableView,didSelectRowAtIndexPath indexpath:NSIndexPath){
+  }
+}
+```
+animation blocks
+```
+let aView = UIView()
+UIView.animationWithDuration(1.0,animations:{
+aView.alpha=0.0
+})
+```
+key-value observing observeValueForKeyPath:
+```
+class AViewController:UIViewController
+{
+  override func viewDidLoad()
+  {
+    super.viewDidLoad()
+    aslf.addObserver(self,forKeyPath:"Something",options:NSKeyValueObservingOptions.new,context:nil)
+  }
+  
+  override func observeValueForKeyPath(keypath:String?,object:AnyObject?,change:[String:AnyObject])
+
+}
+```
+Notification center
+```
+class AViewController:UIViewController
+{
+  override func viewDidLoad()
+  {
+    super.viewDidLoad()
+    NSNotificationCenter,defaultCenter().addObserver(self,selector:#selector(do),name:"",object:nil)
+    }
+    func do(){
+    }
+  }
+}
+```
+######14 setting up animation
+```
+private func animateInvalidEmailInput()
+{
+  self.topLbl.textColor=UIColor.redColor()
+  CATransaction.begin()
+  CATransaction.setCompletionBlock{
+    self.tolLbl.textColor = UIColor.loghtGrayColor()
+  }
+  let animation = CABasicAnimation(keyPath:"position")
+  animation.duration = 0.05
+  animation.fromValue= NSValue(CGPoint: CGPointMake(self.topLel.centerX-8,self.topLel.centerY)
+  animation.fromValue= NSValue(CGPoint: CGPointMake(self.topLel.centerX+8,self.topLel.centerY)
+  animation.repeatCount=5
+  animation.autoreverses = true
+  self.tolLbl.layer.addAnimation(animation,forKey:"position")
+  CATransition.commit()
+}
+```
+######15
+######17 accessbility
+```
+let myControl = UIControl()
+myControl = accessibilityLabel = ""
+myControl.accessibilityHint=""
+```
+UIView:
+```
+let myContainer = UIView()
+myContainer.isAccessibilityElement = false
+myCOntainer.accessibilityElementAtIndex(0)
+```
+######19
+Cocoapods
