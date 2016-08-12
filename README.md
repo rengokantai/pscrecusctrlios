@@ -169,6 +169,25 @@ private func animateInvalidEmailInput()
   CATransition.commit()
 }
 ```
+create regex closure
+```
+func executeClosureEmailIsValid(onValidCompletion:()->())
+{
+  guard let text = self.inputTxtField.text where text.characters.count >0 else{return}
+  do{
+  let reges = try NSGegularExpression(pattern:"^[A-Z0-9a-z._%+=]+@[A-Z0-9a-z.-]+\\[a-zA-Z]{2,4}$",options:.CaseInsensitive)
+  if regex.firstMatchIsString(text,options:[],reange:NSMakeRange(0,text.characters.count))!=nil
+  {
+  onValidCompletion()
+  }else
+  {
+    self.animateInvalidEmailInput()
+  }
+  
+  }
+  catch{self.animateIncalidEmailInput()
+}
+```
 ######15
 ######17 accessbility
 ```
