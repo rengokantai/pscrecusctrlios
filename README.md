@@ -102,6 +102,20 @@ override func viewWillLayoutSubviews()
   self.inputPassword.frame=CGRectMake(...)
 }
 ```
+######10
+```
+override func awakeFromNib()
+{
+  super.awakeFromNib()
+  self.type = self.useFOrEmail?.Email:/Password
+  self.
+}
+
+override func intrinsicContentSize()->CGSize
+{
+  return CGSizeMake(200,40)
+}
+```
 
 ######13
 ```
